@@ -1,26 +1,29 @@
 import React from "react";
 import axios from "axios";
 import Map from "./Map";
-import CountyDropdown from "./CountyDropdown";
 import "./map.css";
 
 export default class StateSearch extends React.Component {
   constructor() {
     super();
     this.state = {
+      state:"",
       province: "",
-      counties: [""],
+      deaths: "",
+      active: "",
+      total: "",
     };
   }
 
   async getProvince(province) {
+    console.log(province, 'state')
     let res = await axios.get(
-      "https://corona.azure-api.net/country/us/" + province
+      "https://data.cdc.gov/resource/9mfq-cb36.json?submission_date=2020-12-07&state=" +
+        province
     );
-    let countylist = res.data.City.map((city) => city.City);
+    console.log(res.data);
     this.setState({
-      province: res.data.Province_State,
-      counties: countylist,
+      state: res.data.state,
     });
   }
 
@@ -31,27 +34,30 @@ export default class StateSearch extends React.Component {
     this.getProvince(province);
   };
 
-  countylistCallback = (counties) => {
-    this.setState({
-      counties: counties,
-    });
-  };
-
   render() {
     return (
       <>
         <div className="mapWrapper">
-          <Map
-            province={this.provinceCallback}
-            counties={this.countylistCallback}
-          />
+          <Map province={this.provinceCallback}/>
         </div>
         <div className="col-sm-12 stateApiCallWrapper">
           <h5 className="stateDataText">
             State: <span className="stateName">{this.state.province}</span>
           </h5>
-          <div id="react-search">
-            <CountyDropdown state={this.state} />
+          <div className="countyDataWrapper">
+            <h5>
+              Deaths: <span className="dataNumber"> {this.state.deaths} </span>
+              &nbsp;&nbsp; &bull; &nbsp;&nbsp;
+            </h5>
+            <h5>
+              Active Cases:{" "}
+              <span className="dataNumber"> {this.state.active} </span>
+              &nbsp;&nbsp; &bull; &nbsp;&nbsp;
+            </h5>
+            <h5>
+              Total Cases:{" "}
+              <span className="dataNumber"> {this.state.active} </span>
+            </h5>
           </div>
         </div>
       </>

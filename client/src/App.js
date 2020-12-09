@@ -90,16 +90,16 @@ function App() {
     <>
 
       <div className="container-fluid mx-0 px-0">
-        {!loggedIn && (
+        {/* {!loggedIn && (
           <BrowserRouter>
             <Route exact path="/" component={() => <Home signUpUser={signUpUser} login={login} />} />
             <Route exact path="/news" component={() => <Home signUpUser={signUpUser} login={login} />} />
             <Route exact path="/members" component={() => <Home signUpUser={signUpUser} login={login} />} />
             <Route exact path="/hospitals" component={() => <Home signUpUser={signUpUser} login={login} />} />
           </BrowserRouter>
-        )}
+        )} */}
 
-        {loggedIn && (
+        {!loggedIn && (
           <BrowserRouter>
             <Route exact path="/" component={() => <Members logout={logout}/>} />
             <Route exact path="/news" component={() => <News logout={logout}/>} />

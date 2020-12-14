@@ -30,6 +30,7 @@ export default class StateSearch extends React.Component {
       ['California', 'CA'],
       ['Colorado', 'CO'],
       ['Connecticut', 'CT'],
+      ['Washington, D.C.', 'DC'],
       ['Delaware', 'DE'],
       ['Florida', 'FL'],
       ['Georgia', 'GA'],

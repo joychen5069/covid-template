@@ -10,7 +10,7 @@ export default class StateSearch extends React.Component {
       state:"",
       province: "",
       deaths: "",
-      active: "",
+      new: "",
       total: "",
     };
   }
@@ -21,9 +21,12 @@ export default class StateSearch extends React.Component {
       "https://data.cdc.gov/resource/9mfq-cb36.json?submission_date=2020-12-07&state=" +
         province
     );
-    console.log(res.data);
+    console.log(res.data[0]);
     this.setState({
-      state: res.data.state,
+      state: res.data[0].state,
+      deaths: res.data[0].tot_death,
+      new: res.data[0].new_case,
+      total: res.data[0].tot_cases,
     });
   }
 
@@ -50,13 +53,13 @@ export default class StateSearch extends React.Component {
               &nbsp;&nbsp; &bull; &nbsp;&nbsp;
             </h5>
             <h5>
-              Active Cases:{" "}
-              <span className="dataNumber"> {this.state.active} </span>
+              New Cases:{" "}
+              <span className="dataNumber"> {this.state.new} </span>
               &nbsp;&nbsp; &bull; &nbsp;&nbsp;
             </h5>
             <h5>
               Total Cases:{" "}
-              <span className="dataNumber"> {this.state.active} </span>
+              <span className="dataNumber"> {this.state.total} </span>
             </h5>
           </div>
         </div>

@@ -16,12 +16,10 @@ export default class StateSearch extends React.Component {
   }
 
   async getProvince(province) {
-    console.log(province, 'state')
     let res = await axios.get(
       "https://data.cdc.gov/resource/9mfq-cb36.json?submission_date=2020-12-07&state=" +
         province
     );
-    console.log(res.data[0]);
     let states =[
       ['Arizona', 'AZ'],
       ['Alabama', 'AL'],

@@ -16,7 +16,6 @@ export default class CurrentData extends React.Component {
     componentDidMount() {
         axios.get("https://api.covidtracking.com/v1/us/current.json")
             .then(res => {
-                console.log(res.data[0]);
                 this.setState({ data: res.data[0] })
             })
     }

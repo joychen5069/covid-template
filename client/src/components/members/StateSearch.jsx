@@ -79,9 +79,9 @@ export default class StateSearch extends React.Component {
       if (states[i][1] === res.data[0].state) {
         this.setState({
           state: states[i][0],
-          deaths: res.data[0].tot_death,
-          new: Math.floor(res.data[0].new_case),
-          total: res.data[0].tot_cases,
+          deaths: Math.floor(res.data[0].tot_death).toLocaleString(),
+          new: Math.floor(res.data[0].new_case).toLocaleString(),
+          total: Math.floor(res.data[0].tot_cases).toLocaleString(),
         });
       }}
     

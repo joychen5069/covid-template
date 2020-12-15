@@ -27,21 +27,21 @@ export default class CurrentData extends React.Component {
                 <div className="container row dataCol">
                     <div className="col-sm-12 col-md-12" id="test">
                         <h5 className="dataTitle">US Testing Data</h5>
-                        <p>Total Tests: {this.state.data.totalTestResults}</p>
-                        <p>Positive Tests: {this.state.data.positive}</p>
-                        <p>Negative Tests: {this.state.data.negative}</p>
+                        <p>Total Tests: {Math.floor(this.state.data.totalTestResults).toLocaleString()}</p>
+                        <p>Positive Tests: {Math.floor(this.state.data.positive).toLocaleString()}</p>
+                        <p>Negative Tests: {Math.floor(this.state.data.negative).toLocaleString()}</p>
                     </div>
                     <div className="col-sm-12 col-md-12" id="currentOne">
                         <h5 className="dataTitle">Current US Data</h5>
-                        <p>Current Hospitalized: {this.state.data.hospitalizedCurrently}</p>
-                        <p>Current ICU: {this.state.data.inIcuCurrently}</p>
-                        <p>Current Ventailator: {this.state.data.onVentilatorCurrently}</p>
+                        <p>Current Hospitalized: {Math.floor(this.state.data.hospitalizedCurrently).toLocaleString()}</p>
+                        <p>Current ICU: {Math.floor(this.state.data.inIcuCurrently).toLocaleString()}</p>
+                        <p>Current Ventailator: {Math.floor(this.state.data.onVentilatorCurrently).toLocaleString()}</p>
                     </div>
                     <div className="col-sm-12 col-md-12" id="cummulativeOne">
                         <h5 className="dataTitle">Cummulative US Data</h5>
-                        <p>Total Deaths: {this.state.data.death}</p>
-                        <p>Total Hospitalized: {this.state.data.hospitalizedCumulative}</p>
-                        <p>Total Recovered: {this.state.data.recovered}</p>
+                        <p>Total Deaths: {Math.floor(this.state.data.death).toLocaleString()}</p>
+                        <p>Total Hospitalized: {Math.floor(this.state.data.hospitalizedCumulative).toLocaleString()}</p>
+                        <p>Total Recovered: {Math.floor(this.state.data.recovered).toLocaleString()}</p>
                     </div>
                     <p className="disclosure">Disclosure: All data is sourced from The COVID Tracking Project and is up-to-date as of {this.month}/{this.date}/{this.year}. Please note that not all testing is reported and numbers may slightly vary from CDC data. </p>
                 </div>
